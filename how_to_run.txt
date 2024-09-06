@@ -1,0 +1,44 @@
+## Football Standings Scraper Script
+
+**Run the script in Linux-based environments**
+
+The `script.py` script scrapes the Sky Sports site to retrieve football league standings from 2000 to 2022.
+
+### Installation
+
+Run the following command to install all the required packages and dependencies:
+
+pip install -r requirements.txt
+
+### How it Works
+
+1. The script utilizes the `requests` package to make requests to the URL generated based on the user's selection of the league and year.
+
+2. It employs the `BeautifulSoup` package to extract the necessary data from the HTML of the page, specifically focusing on tables.
+
+3. The user is prompted to enter their MySQL username (use 'root' for the default).
+
+4. The script then prompts the user to enter the MySQL password (press Enter if no password is set). The script uses the `getpass()` function from the `getpass` package to securely retrieve the password without echoing it back to the output stream.
+
+5. The username and password from steps 3 and 4 are used to connect to the MySQL server.
+
+6. The script uses `pymysql` to create the database with the user-input name if it doesn't already exist.
+
+It utilizes the `peewee` ORM to dynamically create tables based on user input and populate them with data retrieved from the Sky Sports site.
+
+### Table Schema
+
+The table schema is as follows:
+
+- 'standing': IntegerField()
+- 'team': CharField()
+- 'matches_played': IntegerField()
+- 'matches_won': IntegerField()
+- 'matches_drawn': IntegerField()
+- 'matches_lost': IntegerField()
+- 'goals_for': IntegerField()
+- 'goals_against': IntegerField()
+- 'goal_difference': IntegerField()
+- 'points': IntegerField()
+
+Feel free to run the script and explore football standings data for your preferred league and years!
